@@ -20,7 +20,7 @@ class CreateJobsTable extends Migration
             $table->string('phone');
             $table->string('service');
             $table->string('image');
-            $table->string('simage');
+            // $table->string('simage');
             $table->string('exp');
             $table->timestamps();
         });

@@ -58,35 +58,51 @@ class AdminJobsComponent extends Component
         $this->service = '';
         // $scategories = Services_Category::latest()->get();
         $this->image = '';
-        $this->simage = '';
+        // $this->simage = '';
     }
     
     public function store()
     {
-        $this->validate([
+        // $this->validate([
+        //     'ville' => 'required',
+        //     'phone' => 'required',
+        //     'name' => 'required',
+        //     'exp' => 'required',
+        //     'service' => 'required',
+        //     'image' => 'required',
+        //     'simage' => 'required',
+        // ]);
+    
+        // Job::updateOrCreate(['id' => $this->id], [
+        //     'ville' => $this->ville,
+        //     'phone' => $this->phone,
+        //     'name' => $this->name,
+        //     'exp' => $this->exp,
+        //     'service' => $this->service,
+        //     'image' => $this->image,
+        //     'simage' => $this->simage,
+        // ]);
+
+        // $image= $this->image->store('public');
+        // $simage= $this->simage->store('public');
+        $validateData = $this->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'ville' => 'required',
             'phone' => 'required',
             'name' => 'required',
             'exp' => 'required',
             'service' => 'required',
-            'image' => 'required',
-            'simage' => 'required',
-        ]);
-    
-        Job::updateOrCreate(['id' => $this->id], [
-            'ville' => $this->ville,
-            'phone' => $this->phone,
-            'name' => $this->name,
-            'exp' => $this->exp,
-            'service' => $this->service,
-            'image' => $this->image,
-            'simage' => $this->simage,
         ]);
 
-        $image= $this->image->store('public');
-        $simage= $this->simage->store('public');
+        $image = $this->image->store('images', 'public');
+        $validateData['image'] = $image;
 
+        Job::create($validateData);
         session()->flash('message', $this->id ? 'category updated.' : 'category created.');
+        $this->emit('imageUploaded');
+
+
+        // session()->flash('message', $this->id ? 'category updated.' : 'category created.');
 
         $this->closeModalPopover();
         $this->resetCreateForm();

@@ -16,7 +16,8 @@
               <img src="{{asset('assets/img/cancel.svg')}}" wire:click="delete({{ $job->id }})" style="height: 10px; width:10px;">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="{{asset('assets/img/team-1.jpg')}}" alt="Team Image">
+                        {{-- <img src="{{asset('assets/img/team-1.jpg')}}" alt="Team Image"> --}}
+                        <img class="icon-img" src="{{asset('assets/images')}}/{{$job->image}}">
                     </div>
                     <div class="team-text">
                         <h2>{{ $job->ville }}</h2>
