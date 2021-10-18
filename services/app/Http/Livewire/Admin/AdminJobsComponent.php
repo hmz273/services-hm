@@ -99,7 +99,7 @@ class AdminJobsComponent extends Component
 
         Job::create($validateData);
         session()->flash('message', $this->id ? 'category updated.' : 'category created.');
-        $this->emit('imageUploaded');
+        // $this->emit('imageUploaded');
 
 
         // session()->flash('message', $this->id ? 'category updated.' : 'category created.');

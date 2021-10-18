@@ -129,7 +129,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="{{asset('assets/img/team-1.jpg')}}" alt="Team Image">
+                        <img class="icon-img" src="{{asset('storage')}}/{{$jb->image}}">
                     </div>
                     <div class="team-text">
                         <h2>{{ $jb->name }}</h2>

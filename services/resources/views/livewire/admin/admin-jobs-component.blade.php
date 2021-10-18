@@ -6,7 +6,7 @@
             <p>Team Member</p>
             <h2>Meet Our Expert Cleaners</h2>
         </div>
-        <a wire:click="create()" class="btn mb-4">Add</a>
+        <a wire:click="create()" class="btn btn-primary mb-5 text-light">Add</a>
           @if($isModalOpen)
           @include('livewire.add')
           @endif
@@ -17,7 +17,7 @@
                 <div class="team-item">
                     <div class="team-img">
                         {{-- <img src="{{asset('assets/img/team-1.jpg')}}" alt="Team Image"> --}}
-                        <img class="icon-img" src="{{asset('assets/images')}}/{{$job->image}}">
+                        <img class="icon-img" src="{{asset('storage')}}/{{$job->image}}">
                     </div>
                     <div class="team-text">
                         <h2>{{ $job->ville }}</h2>
